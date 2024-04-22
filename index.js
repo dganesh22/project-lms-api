@@ -30,15 +30,15 @@ app.use(fileUpload({
 }))
 
 // index route
-if(process.env.MODE === "production") {
-    // executes in production mode
-    app.use(`/`, (req,res, next) => {
-        return res.sendFile(path.resolve(__dirname,`./build/index.html`))
-        next()
-    })
-}
+// if(process.env.MODE === "production") {
+//     // executes in production mode
+//     app.use(`/`, (req,res, next) => {
+//         return res.sendFile(path.resolve(__dirname,`./build/index.html`))
+//         next()
+//     })
+// }
 
-if(process.env.MODE === "development") {
+if(process.env.MODE === "production") {
     app.get(`/`, async (req,res) => {
         return res.status(StatusCodes.OK).json({ status: true, msg: "Welcome to Project-LMS-API"})
     })
